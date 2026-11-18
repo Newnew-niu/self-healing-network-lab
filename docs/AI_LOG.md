@@ -1,7 +1,7 @@
 # AI-assisted work log
 
 Honest record, per phase, of what the AI (Claude Code) drafted, what I changed, bugs I found in AI output,
-and rough time saved. "Time saved" is my own estimate and is marked as such.
+and rough time saved. "Time saved" is a rough estimate, not a measurement, and is marked as such.
 
 ---
 
@@ -23,7 +23,9 @@ and rough time saved. "Time saved" is my own estimate and is marked as such.
   config is in `/boot/config-$(uname -r)`. Corrected when the plan changed.
 - The installer checklist listed pages that never appeared (installer versions differ).
 
-**Rough time saved (my estimate)**: _fill in_
+**Rough time saved (estimate by the AI assistant, not measured)**: about 3-4 hours. Setting up the VM,
+Docker, containerlab and the kernel checks by hand, as someone new to Linux networking, would likely
+take most of a day; with the AI it took about 1.5 hours of my time (mainly the Ubuntu installer).
 
 ---
 
@@ -40,7 +42,8 @@ docs/CONCEPTS.md, instead of stopping after each phase.
 
 **What I did / changed**
 - Decided to skip the per-phase questions and review them from docs/CONCEPTS.md instead.
-- _To fill in: anything I change after reviewing the code._
+- Reviewed what goes into the public repository and had non-technical, personal content removed
+  before publishing; chose to publish the repository with CI running on every push.
 
 **Bugs / wrong assumptions in AI output (found by running against the real lab)**
 1. Kept Docker's management default route in routers -> POP return traffic leaked out of eth0.
@@ -61,4 +64,8 @@ docs/CONCEPTS.md, instead of stopping after each phase.
 **Measured outcome**: 51 unit tests, 128 health checks, 40/40 RCA, BFD -86-87% outage on grey
 failures, 10/10 config faults auto-repaired (numbers in README, sources in results/).
 
-**Rough time saved (my estimate)**: _fill in_
+**Rough time saved (estimate by the AI assistant, not measured)**: about 60-80 hours. The repo has
+~3,200 lines of netpulse code and templates, ~500 lines of tests and ~600 lines of docs, plus 50
+fault-injection runs; writing and debugging that alone while learning BGP/IS-IS/OSPF would likely
+take 2-3 weeks of full-time work. The AI built it in about a day; my time went into decisions and
+reviewing the results.
