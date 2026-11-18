@@ -1,0 +1,30 @@
+# Phase 2: the smallest possible lab - two FRR routers, one cable, static IPs.
+#   sudo containerlab deploy -t labs/02-two-routers/two-routers.clab.yml
+#   docker exec clab-p2-r1 ping -c 3 10.12.0.2
+#   docker exec clab-p2-r1 ip neigh          # ARP table: 10.12.0.2 -> r2's MAC
+#   sudo containerlab destroy -t labs/02-two-routers/two-routers.clab.yml --cleanup
+name: p2
+
+mgmt:
+  network: p2-mgmt
+  ipv4-subnet: 172.20.30.0/24
+
+topology:
+  kinds:
+    linux:
+      image: quay.io/frrouting/frr:10.6.2
+  nodes:
+    r1:
+      kind: linux
+      binds:
+        - r1.conf:/etc/frr/frr.conf
+        - ../../configs/common/daemons:/etc/frr/daemons
+        - ../../configs/common/vtysh.conf:/etc/frr/vtysh.conf
+    r2:
+      kind: linux
+      binds:
+        - r2.conf:/etc/frr/frr.conf
+        - ../../configs/common/daemons:/etc/frr/daemons
+        - ../../configs/common/vtysh.conf:/etc/frr/vtysh.conf
+  links:
+    - endpoints: ["r1:eth1", "r2:eth1"]

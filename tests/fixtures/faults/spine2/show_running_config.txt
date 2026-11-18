@@ -1,0 +1,72 @@
+Building configuration...
+
+Current configuration:
+!
+frr version 10.6.2_git
+frr defaults datacenter
+hostname spine2
+log file /tmp/frr.log informational
+log timestamp precision 3
+service integrated-vtysh-config
+!
+ip prefix-list LOCAL seq 10 permit 10.0.0.2/32
+!
+route-map ALLOW-ALL permit 10
+exit
+!
+interface eth1
+ description fabric to leaf1:eth2
+ ip address 10.1.2.0/31
+exit
+!
+interface eth2
+ description fabric to leaf2:eth2
+ ip address 10.1.2.2/31
+exit
+!
+interface eth3
+ description fabric to leaf3:eth2
+ ip address 10.1.2.4/31
+exit
+!
+interface eth4
+ description edge to bb2:eth1
+ ip address 10.2.0.3/31
+exit
+!
+interface lo
+ ip address 10.0.0.2/32
+exit
+!
+router bgp 65100
+ bgp router-id 10.0.0.2
+ neighbor EDGE peer-group
+ neighbor EDGE bfd
+ neighbor FABRIC peer-group
+ neighbor FABRIC bfd
+ neighbor 10.2.0.2 remote-as 65000
+ neighbor 10.2.0.2 peer-group EDGE
+ neighbor 10.2.0.2 description bb2
+ neighbor 10.1.2.1 remote-as 65101
+ neighbor 10.1.2.1 peer-group FABRIC
+ neighbor 10.1.2.1 description leaf1
+ neighbor 10.1.2.3 remote-as 65102
+ neighbor 10.1.2.3 peer-group FABRIC
+ neighbor 10.1.2.3 description leaf2
+ neighbor 10.1.2.5 remote-as 65103
+ neighbor 10.1.2.5 peer-group FABRIC
+ neighbor 10.1.2.5 description leaf3
+ neighbor 10.1.2.5 shutdown
+ use-underlays-nexthop-weight
+ !
+ address-family ipv4 unicast
+  network 10.0.0.2/32
+  neighbor EDGE route-map ALLOW-ALL in
+  neighbor EDGE route-map ALLOW-ALL out
+  neighbor FABRIC route-map ALLOW-ALL in
+  neighbor FABRIC route-map ALLOW-ALL out
+  maximum-paths 8
+ exit-address-family
+exit
+!
+end

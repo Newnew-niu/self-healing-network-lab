@@ -1,0 +1,21 @@
+{
+  "neighbors":{
+    "10.255.0.3":[
+      {
+        "nbrState":"Full\/-",
+        "nbrPriority":1,
+        "converged":"Full",
+        "role":"DROther",
+        "upTimeInMsec":227998,
+        "routerDeadIntervalTimerDueMsec":30818,
+        "upTime":"3m47s",
+        "deadTime":"30.818s",
+        "ifaceAddress":"172.16.0.1",
+        "ifaceName":"gre1:172.16.0.2",
+        "linkStateRetransmissionListCounter":0,
+        "linkStateRequestListCounter":0,
+        "databaseSummaryListCounter":0
+      }
+    ]
+  }
+}

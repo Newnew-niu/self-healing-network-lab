@@ -1,0 +1,11 @@
+fault,run,detect_s,recovered_s,actions_executed
+interface_shutdown,1,4.6,10.1,1
+interface_shutdown,2,3.7,8.7,1
+interface_shutdown,3,4.23,8.99,1
+interface_shutdown,4,5.0,10.83,1
+interface_shutdown,5,4.05,8.85,1
+bgp_neighbor_shutdown,1,4.74,10.54,1
+bgp_neighbor_shutdown,2,3.87,9.09,1
+bgp_neighbor_shutdown,3,3.95,13.64,1
+bgp_neighbor_shutdown,4,3.78,13.36,1
+bgp_neighbor_shutdown,5,4.06,13.58,1

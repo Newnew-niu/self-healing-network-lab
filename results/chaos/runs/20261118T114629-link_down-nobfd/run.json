@@ -1,0 +1,1064 @@
+{
+  "run_id": "20261118T114629-link_down-nobfd",
+  "scenario": "link_down",
+  "bfd": false,
+  "target": "leaf1:eth1 set down (carrier loss on leaf1-spine1)",
+  "src": "host1",
+  "dst": "host3",
+  "sent": 1500,
+  "received": 1490,
+  "lost": 10,
+  "outage_ms": 100.0,
+  "outage_start": "2026-11-18T11:46:32.312+00:00",
+  "outage_end": "2026-11-18T11:46:32.436+00:00",
+  "fault_at": "2026-11-18T11:46:32.270+00:00",
+  "extra": {},
+  "ground_truth": {
+    "kind": "link",
+    "devices": [
+      "leaf1",
+      "spine1"
+    ]
+  },
+  "ping_started": "2026-11-18T11:46:29.269+00:00",
+  "checks_during_fault": [
+    {
+      "check": "interface_up",
+      "device": "spine1",
+      "target": "eth1",
+      "ok": false,
+      "detail": "oper down (no carrier)",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine1",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "spine1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "spine1",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine1",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "spine1",
+      "target": "eth4",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine1",
+      "target": "eth4",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine1",
+      "target": "leaf1(10.1.1.1)",
+      "ok": false,
+      "detail": "Active",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine1",
+      "target": "leaf2(10.1.1.3)",
+      "ok": true,
+      "detail": "Established",
+      "value": 1.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine1",
+      "target": "leaf3(10.1.1.5)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine1",
+      "target": "bb1(10.2.0.0)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "spine1",
+      "target": "8 expected",
+      "ok": false,
+      "detail": "missing 10.0.1.1/32, 192.168.11.0/24",
+      "value": 6
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine1",
+      "target": "leaf1(10.1.1.1)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine1",
+      "target": "leaf2(10.1.1.3)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine1",
+      "target": "leaf3(10.1.1.5)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine1",
+      "target": "bb1(10.2.0.0)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "spine2",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine2",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "spine2",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine2",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "spine2",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine2",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "spine2",
+      "target": "eth4",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "spine2",
+      "target": "eth4",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine2",
+      "target": "leaf1(10.1.2.1)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine2",
+      "target": "leaf2(10.1.2.3)",
+      "ok": true,
+      "detail": "Established",
+      "value": 1.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine2",
+      "target": "leaf3(10.1.2.5)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "spine2",
+      "target": "bb2(10.2.0.2)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "spine2",
+      "target": "8 expected",
+      "ok": true,
+      "detail": "all expected prefixes present",
+      "value": 8
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine2",
+      "target": "leaf1(10.1.2.1)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine2",
+      "target": "leaf2(10.1.2.3)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine2",
+      "target": "leaf3(10.1.2.5)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "spine2",
+      "target": "bb2(10.2.0.2)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf1",
+      "target": "eth1",
+      "ok": false,
+      "detail": "admin down (shutdown)",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf1",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf1",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf1",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "leaf1",
+      "target": "spine1(10.1.1.0)",
+      "ok": false,
+      "detail": "Active",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "leaf1",
+      "target": "spine2(10.1.2.0)",
+      "ok": true,
+      "detail": "Established",
+      "value": 6.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "leaf1",
+      "target": "9 expected",
+      "ok": false,
+      "detail": "missing 10.0.0.1/32",
+      "value": 8
+    },
+    {
+      "check": "bfd_peer",
+      "device": "leaf1",
+      "target": "spine1(10.1.1.0)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "leaf1",
+      "target": "spine2(10.1.2.0)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf2",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf2",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf2",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf2",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "leaf2",
+      "target": "spine1(10.1.1.2)",
+      "ok": true,
+      "detail": "Established",
+      "value": 5.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "leaf2",
+      "target": "spine2(10.1.2.2)",
+      "ok": true,
+      "detail": "Established",
+      "value": 7.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "leaf2",
+      "target": "9 expected",
+      "ok": true,
+      "detail": "all expected prefixes present",
+      "value": 9
+    },
+    {
+      "check": "bfd_peer",
+      "device": "leaf2",
+      "target": "spine1(10.1.1.2)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "leaf2",
+      "target": "spine2(10.1.2.2)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf3",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf3",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf3",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf3",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "leaf3",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "leaf3",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "leaf3",
+      "target": "spine1(10.1.1.4)",
+      "ok": true,
+      "detail": "Established",
+      "value": 4.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "leaf3",
+      "target": "spine2(10.1.2.4)",
+      "ok": true,
+      "detail": "Established",
+      "value": 6.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "leaf3",
+      "target": "9 expected",
+      "ok": true,
+      "detail": "all expected prefixes present",
+      "value": 9
+    },
+    {
+      "check": "bfd_peer",
+      "device": "leaf3",
+      "target": "spine1(10.1.1.4)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "leaf3",
+      "target": "spine2(10.1.2.4)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "bb1",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb1",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "bb1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "bb1",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb1",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb1",
+      "target": "spine1(10.2.0.1)",
+      "ok": true,
+      "detail": "Established",
+      "value": 4.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb1",
+      "target": "bb2(10.255.0.2)",
+      "ok": true,
+      "detail": "Established",
+      "value": 6.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb1",
+      "target": "bb3(10.255.0.3)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "bb1",
+      "target": "9 expected",
+      "ok": true,
+      "detail": "all expected prefixes present",
+      "value": 9
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb1",
+      "target": "spine1(10.2.0.1)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb1",
+      "target": "bb2(10.3.0.1)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb1",
+      "target": "bb3(10.3.0.5)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "isis_adjacency",
+      "device": "bb1",
+      "target": "eth2->bb2",
+      "ok": true,
+      "detail": "Up with bb2",
+      "value": null
+    },
+    {
+      "check": "isis_adjacency",
+      "device": "bb1",
+      "target": "eth3->bb3",
+      "ok": true,
+      "detail": "Up with bb3",
+      "value": null
+    },
+    {
+      "check": "ldp_neighbor",
+      "device": "bb1",
+      "target": "bb2",
+      "ok": true,
+      "detail": "OPERATIONAL",
+      "value": null
+    },
+    {
+      "check": "ldp_neighbor",
+      "device": "bb1",
+      "target": "bb3",
+      "ok": true,
+      "detail": "OPERATIONAL",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "bb2",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb2",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "bb2",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb2",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "bb2",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb2",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb2",
+      "target": "spine2(10.2.0.3)",
+      "ok": true,
+      "detail": "Established",
+      "value": 6.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb2",
+      "target": "bb1(10.255.0.1)",
+      "ok": true,
+      "detail": "Established",
+      "value": 4.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb2",
+      "target": "bb3(10.255.0.3)",
+      "ok": true,
+      "detail": "Established",
+      "value": 2.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "bb2",
+      "target": "9 expected",
+      "ok": true,
+      "detail": "all expected prefixes present",
+      "value": 9
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb2",
+      "target": "spine2(10.2.0.3)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb2",
+      "target": "bb1(10.3.0.0)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb2",
+      "target": "bb3(10.3.0.3)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "isis_adjacency",
+      "device": "bb2",
+      "target": "eth2->bb1",
+      "ok": true,
+      "detail": "Up with bb1",
+      "value": null
+    },
+    {
+      "check": "isis_adjacency",
+      "device": "bb2",
+      "target": "eth3->bb3",
+      "ok": true,
+      "detail": "Up with bb3",
+      "value": null
+    },
+    {
+      "check": "ldp_neighbor",
+      "device": "bb2",
+      "target": "bb1",
+      "ok": true,
+      "detail": "OPERATIONAL",
+      "value": null
+    },
+    {
+      "check": "ldp_neighbor",
+      "device": "bb2",
+      "target": "bb3",
+      "ok": true,
+      "detail": "OPERATIONAL",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "bb3",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb3",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "bb3",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb3",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "bb3",
+      "target": "eth3",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "bb3",
+      "target": "eth3",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb3",
+      "target": "bb1(10.255.0.1)",
+      "ok": true,
+      "detail": "Established",
+      "value": 4.0
+    },
+    {
+      "check": "bgp_session",
+      "device": "bb3",
+      "target": "bb2(10.255.0.2)",
+      "ok": true,
+      "detail": "Established",
+      "value": 6.0
+    },
+    {
+      "check": "bgp_prefixes",
+      "device": "bb3",
+      "target": "9 expected",
+      "ok": true,
+      "detail": "all expected prefixes present",
+      "value": 9
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb3",
+      "target": "bb1(10.3.0.4)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "bfd_peer",
+      "device": "bb3",
+      "target": "bb2(10.3.0.2)",
+      "ok": false,
+      "detail": "missing",
+      "value": null
+    },
+    {
+      "check": "isis_adjacency",
+      "device": "bb3",
+      "target": "eth1->bb1",
+      "ok": true,
+      "detail": "Up with bb1",
+      "value": null
+    },
+    {
+      "check": "isis_adjacency",
+      "device": "bb3",
+      "target": "eth2->bb2",
+      "ok": true,
+      "detail": "Up with bb2",
+      "value": null
+    },
+    {
+      "check": "ospf_neighbor",
+      "device": "bb3",
+      "target": "gre1->pop1",
+      "ok": true,
+      "detail": "Full",
+      "value": null
+    },
+    {
+      "check": "ldp_neighbor",
+      "device": "bb3",
+      "target": "bb1",
+      "ok": true,
+      "detail": "OPERATIONAL",
+      "value": null
+    },
+    {
+      "check": "ldp_neighbor",
+      "device": "bb3",
+      "target": "bb2",
+      "ok": true,
+      "detail": "OPERATIONAL",
+      "value": null
+    },
+    {
+      "check": "gre_tunnel",
+      "device": "bb3",
+      "target": "gre1",
+      "ok": true,
+      "detail": "if UP, ping 3/3",
+      "value": null
+    },
+    {
+      "check": "interface_up",
+      "device": "pop1",
+      "target": "eth1",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "pop1",
+      "target": "eth1",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "interface_up",
+      "device": "pop1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "up",
+      "value": null
+    },
+    {
+      "check": "interface_errors",
+      "device": "pop1",
+      "target": "eth2",
+      "ok": true,
+      "detail": "rx_errors=0 tx_errors=0",
+      "value": 0.0
+    },
+    {
+      "check": "ospf_neighbor",
+      "device": "pop1",
+      "target": "gre1->bb3",
+      "ok": true,
+      "detail": "Full",
+      "value": null
+    },
+    {
+      "check": "gre_tunnel",
+      "device": "pop1",
+      "target": "gre1",
+      "ok": true,
+      "detail": "if UP, ping 3/3",
+      "value": null
+    },
+    {
+      "check": "reachability",
+      "device": "host1",
+      "target": "host3",
+      "ok": true,
+      "detail": "5/5 replies",
+      "value": 0.0
+    },
+    {
+      "check": "latency",
+      "device": "host1",
+      "target": "host3",
+      "ok": true,
+      "detail": "avg 0.109 ms (limit 50)",
+      "value": 0.109
+    },
+    {
+      "check": "reachability",
+      "device": "host1",
+      "target": "hostpop",
+      "ok": true,
+      "detail": "5/5 replies",
+      "value": 0.0
+    },
+    {
+      "check": "latency",
+      "device": "host1",
+      "target": "hostpop",
+      "ok": true,
+      "detail": "avg 0.186 ms (limit 50)",
+      "value": 0.186
+    },
+    {
+      "check": "reachability",
+      "device": "host3",
+      "target": "hostpop",
+      "ok": true,
+      "detail": "5/5 replies",
+      "value": 0.0
+    },
+    {
+      "check": "latency",
+      "device": "host3",
+      "target": "hostpop",
+      "ok": true,
+      "detail": "avg 0.198 ms (limit 50)",
+      "value": 0.198
+    }
+  ],
+  "router_events": [
+    {
+      "ts": "2026-11-18T11:46:32.315+00:00",
+      "device": "leaf1",
+      "daemon": "BGP",
+      "message": "%ADJCHANGE: neighbor 10.1.1.0(spine1) in vrf default Down Interface down"
+    },
+    {
+      "ts": "2026-11-18T11:46:32.316+00:00",
+      "device": "spine1",
+      "daemon": "BGP",
+      "message": "%ADJCHANGE: neighbor 10.1.1.1(leaf1) in vrf default Down Interface down"
+    }
+  ]
+}

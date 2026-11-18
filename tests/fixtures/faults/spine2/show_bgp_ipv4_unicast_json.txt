@@ -1,0 +1,14 @@
+{
+ "vrfId": 0,
+ "vrfName": "default",
+ "tableVersion": 10,
+ "routerId": "10.0.0.2",
+ "defaultLocPrf": 100,
+ "localAS": 65100,
+ "routes": { "10.0.0.2/32": [{"valid":true,"bestpath":true,"selectionReason":"First path received","pathFrom":"external","prefix":"10.0.0.2","prefixLen":32,"network":"10.0.0.2/32","version":1,"metric":0,"weight":32768,"peerId":"(unspec)","path":"","origin":"IGP","nexthops":[{"ip":"0.0.0.0","hostname":"spine2","afi":"ipv4","used":true}]}]
+,"10.0.1.1/32": [{"valid":true,"bestpath":true,"selectionReason":"First path received","pathFrom":"external","prefix":"10.0.1.1","prefixLen":32,"network":"10.0.1.1/32","version":5,"metric":0,"weight":0,"peerId":"10.1.2.1","path":"65101","origin":"IGP","nexthops":[{"ip":"10.1.2.1","hostname":"leaf1","afi":"ipv4","used":true}]}]
+,"10.0.1.2/32": [{"valid":true,"bestpath":true,"selectionReason":"First path received","pathFrom":"external","prefix":"10.0.1.2","prefixLen":32,"network":"10.0.1.2/32","version":2,"metric":0,"weight":0,"peerId":"10.1.2.3","path":"65102","origin":"IGP","nexthops":[{"ip":"10.1.2.3","hostname":"leaf2","afi":"ipv4","used":true}]}]
+,"10.255.1.1/32": [{"valid":true,"bestpath":true,"selectionReason":"First path received","pathFrom":"external","prefix":"10.255.1.1","prefixLen":32,"network":"10.255.1.1/32","version":7,"weight":0,"peerId":"10.2.0.2","path":"65000","origin":"incomplete","nexthops":[{"ip":"10.2.0.2","hostname":"bb2","afi":"ipv4","used":true}]}]
+,"192.168.11.0/24": [{"valid":true,"bestpath":true,"selectionReason":"First path received","pathFrom":"external","prefix":"192.168.11.0","prefixLen":24,"network":"192.168.11.0/24","version":6,"metric":0,"weight":0,"peerId":"10.1.2.1","path":"65101","origin":"IGP","nexthops":[{"ip":"10.1.2.1","hostname":"leaf1","afi":"ipv4","used":true}]}]
+,"192.168.30.0/24": [{"valid":true,"bestpath":true,"selectionReason":"First path received","pathFrom":"external","prefix":"192.168.30.0","prefixLen":24,"network":"192.168.30.0/24","version":8,"weight":0,"peerId":"10.2.0.2","path":"65000","origin":"incomplete","nexthops":[{"ip":"10.2.0.2","hostname":"bb2","afi":"ipv4","used":true}]}]
+ } , "totalRoutes": 6, "totalPaths": 6 } 

@@ -1,0 +1,160 @@
+frr version 10.6
+frr defaults datacenter
+hostname {{ name }}
+log file /tmp/frr.log informational
+log timestamp precision 3
+service integrated-vtysh-config
+!
+{% if static_routes %}
+{% for prefix, nexthop in static_routes %}
+ip route {{ prefix }} {{ nexthop }}
+{% endfor %}
+!
+{% endif %}
+{% if bgp and bgp.local_prefixes %}
+{% for p in bgp.local_prefixes %}
+ip prefix-list LOCAL seq {{ loop.index * 10 }} permit {{ p }}
+{% endfor %}
+!
+{% endif %}
+{% if bgp and bgp.redistribute_ospf %}
+{% for p in bgp.pop_prefixes %}
+ip prefix-list POP seq {{ loop.index * 10 }} permit {{ p }}
+{% endfor %}
+!
+{% endif %}
+{% if mpls %}
+mpls ldp
+ router-id {{ loopback }}
+ !
+ address-family ipv4
+  discovery transport-address {{ loopback }}
+  !
+{% for itf in mpls.interfaces %}
+  interface {{ itf }}
+  exit
+  !
+{% endfor %}
+ exit-address-family
+ !
+exit
+!
+{% endif %}
+{% for itf in interfaces %}
+interface {{ itf.name }}
+ description {{ itf.description }}
+ ip address {{ itf.ip }}
+{% if itf.isis %}
+ ip router isis CORE
+{% if bfd %}
+ isis bfd
+{% endif %}
+ isis network point-to-point
+{% endif %}
+exit
+!
+{% endfor %}
+{% for t in tunnels %}
+interface {{ t.name }}
+ description {{ t.description }}
+ ip address {{ t.ip }}
+ ip ospf network point-to-point
+exit
+!
+{% endfor %}
+interface lo
+ ip address {{ loopback }}/32
+{% if tunnel_endpoint %}
+ ip address {{ tunnel_endpoint }}/32
+{% endif %}
+{% if isis %}
+ ip router isis CORE
+ isis passive
+{% endif %}
+exit
+!
+{% if bgp %}
+router bgp {{ bgp.asn }}
+ bgp router-id {{ loopback }}
+{% for g in bgp.groups %}
+ neighbor {{ g }} peer-group
+{% if g == "IBGP" %}
+ neighbor {{ g }} remote-as internal
+ neighbor {{ g }} update-source lo
+{% elif bfd %}
+ neighbor {{ g }} bfd
+{% endif %}
+{% endfor %}
+{% for n in bgp.neighbors %}
+{% if n.group == "IBGP" %}
+ neighbor {{ n.ip }} peer-group {{ n.group }}
+{% else %}
+ neighbor {{ n.ip }} remote-as {{ n.remote_as }}
+ neighbor {{ n.ip }} peer-group {{ n.group }}
+{% endif %}
+ neighbor {{ n.ip }} description {{ n.peer }}
+{% endfor %}
+ !
+ address-family ipv4 unicast
+{% for p in bgp.local_prefixes %}
+  network {{ p }}
+{% endfor %}
+{% if bgp.redistribute_ospf %}
+  redistribute ospf route-map OSPF-TO-BGP
+{% endif %}
+{% for g in bgp.groups %}
+{% if g == "IBGP" %}
+  neighbor IBGP next-hop-self
+{% elif role == "leaf" %}
+  neighbor {{ g }} route-map ALLOW-ALL in
+  neighbor {{ g }} route-map LEAF-OUT out
+{% else %}
+  neighbor {{ g }} route-map ALLOW-ALL in
+  neighbor {{ g }} route-map ALLOW-ALL out
+{% endif %}
+{% endfor %}
+  maximum-paths {{ max_paths }}
+{% if role == "backbone" %}
+  maximum-paths ibgp {{ max_paths }}
+{% endif %}
+ exit-address-family
+exit
+!
+{% endif %}
+{% if ospf %}
+router ospf
+ ospf router-id {{ loopback }}
+{% for prefix, area in ospf.networks %}
+ network {{ prefix }} area {{ area }}
+{% endfor %}
+{% if ospf.default_originate %}
+ default-information originate always
+{% endif %}
+exit
+!
+{% endif %}
+{% if isis %}
+router isis CORE
+ is-type level-2-only
+ net {{ isis.net }}
+ log-adjacency-changes
+exit
+!
+{% endif %}
+{% if bgp %}
+route-map ALLOW-ALL permit 10
+exit
+!
+{% endif %}
+{% if role == "leaf" %}
+route-map LEAF-OUT permit 10
+ match ip address prefix-list LOCAL
+exit
+!
+{% endif %}
+{% if bgp and bgp.redistribute_ospf %}
+route-map OSPF-TO-BGP permit 10
+ match ip address prefix-list POP
+exit
+!
+{% endif %}

@@ -1,0 +1,30 @@
+{
+  "areas":[
+    {
+      "area":"CORE",
+      "circuits":[
+        {
+          "circuit":0,
+          "adj":"bb2",
+          "interface":"eth2",
+          "level":2,
+          "state":"Up",
+          "expires-in":"30s",
+          "snpa":"2020.2020.2020"
+        },
+        {
+          "circuit":0,
+          "adj":"bb3",
+          "interface":"eth3",
+          "level":2,
+          "state":"Up",
+          "expires-in":"28s",
+          "snpa":"2020.2020.2020"
+        },
+        {
+          "circuit":0
+        }
+      ]
+    }
+  ]
+}

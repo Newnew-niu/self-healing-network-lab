@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netpulse"
+version = "0.1.0"
+description = "Intent-driven config generation, health checks, drift detection and guarded remediation for an FRR lab"
+requires-python = ">=3.11"
+dependencies = [
+    "jinja2>=3.1,<4",
+    "pyyaml>=6,<7",
+    "prometheus-client>=0.20,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+ai = ["anthropic>=0.40"]
+
+[project.scripts]
+netpulse = "netpulse.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["netpulse*"]
+
+[tool.setuptools.package-data]
+netpulse = ["templates/*.j2"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
